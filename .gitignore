@@ -114,3 +114,4 @@ dmypy.json
 .pyre/
 *.cdf
 .vscode/settings.json
+*.png
