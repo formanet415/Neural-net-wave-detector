@@ -19,12 +19,17 @@ cdf = cdf_load_tswf(CDF_DIR);
 
 load(dotTXT_DIR)
 ind = 0;
+indsus = 0;
 for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
     if cdf.SAMPS_PER_CH.data(i,1) == 8192 && i < final_index
         if ismember(i, indexes)
             sus = 1;
+            tind = indsus+1;
+            indsus = indsus+1;
         else
             sus = 0;
+            tind = ind+1;
+            ind = ind+1;
         end
         
         fs = cdf.SAMPLING_RATE.data(i,1);
@@ -41,8 +46,8 @@ for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
         %sp = rescale(abs(sp),0,255);
         
         disp(sprintf('0_%u.mat', i))
-        imwrite(sp,fullfile('dataset',num2str(sus),sprintf('%u_%u.png',sus,ind)))
-        ind = ind+1;
+        imwrite(sp,fullfile('dataset',num2str(sus),sprintf('%u_%u.png',sus,tind)))
+        
     end
 end
 end
