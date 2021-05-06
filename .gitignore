@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.png
 
 # C extensions
 *.so
@@ -114,4 +115,5 @@ dmypy.json
 .pyre/
 *.cdf
 .vscode/settings.json
-*.png
+
+
