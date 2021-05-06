@@ -15,7 +15,7 @@ model = keras.Sequential(
         layers.Conv2D(128,3, activation='relu'),
         layers.Flatten(),
         layers.Dense(64,activation='relu'),
-        layers.Dense(2),
+        layers.Dense(2, activation='softmax'),
     ]
 )
 
