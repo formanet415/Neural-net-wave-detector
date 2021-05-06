@@ -56,3 +56,4 @@ model.compile(
 
 model.fit(ds_train, batch_size=64, epochs=10, verbose=2)
 model.evaluate(ds_validation, batch_size=64, verbose=2)
+model.save('saved_model/')
