@@ -50,10 +50,10 @@ print(model.summary())
 
 model.compile(
     loss = keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-    optimizer = keras.optimizers.Adam(lr=3e-4),
+    optimizer =keras.optimizers.Adagrad(lr=0.001),
     metrics=["accuracy"]
 )
 
-model.fit(ds_train, batch_size=64, epochs=10, verbose=2)
+model.fit(ds_train, batch_size=64, epochs=100, verbose=2)
 model.evaluate(ds_validation, batch_size=64, verbose=2)
-model.save('saved_model/')
+model.save('saved_modelv2/')
