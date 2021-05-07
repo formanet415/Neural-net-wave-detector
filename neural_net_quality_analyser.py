@@ -42,7 +42,7 @@ for filename in paths:
         continue
 
 with open('data/ESW_probabilities.csv', mode='w') as csv_file:
-    data_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    data_writer = csv.writer(csv_file, delimiter='\n', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     data_writer.writerow(values)
     #data_writer.writerow(checked)
 
