@@ -31,7 +31,7 @@ for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
         %sp = rescale(abs(sp),0,255);
         
         disp(sprintf('0_%u.png', i))
-        imwrite(sp,fullfile('converted_tswf_spectra',sprintf('%u.png',i)))
+        imwrite(sp,fullfile('converted_tswf_spectra_blind_data',sprintf('%u.png',i)))
         
     end
     if cdf.SAMPS_PER_CH.data(i,1) == 8192*2
@@ -57,7 +57,7 @@ for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
         %sp = rescale(abs(sp),0,255);
         
         disp(sprintf('0_%u.png', i))
-        imwrite(sp,fullfile('converted_tswf_spectra',sprintf('%u_1.png',i)))
+        imwrite(sp,fullfile('converted_tswf_spectra_blind_data',sprintf('%u_1.png',i)))
         
         data = data2;
         
@@ -72,7 +72,7 @@ for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
         %sp = rescale(abs(sp),0,255);
         
         disp(sprintf('0_%u.png', i))
-        imwrite(sp,fullfile('converted_tswf_spectra',sprintf('%u_2.png',i)))
+        imwrite(sp,fullfile('converted_tswf_spectra_blind_data',sprintf('%u_2.png',i)))
         
     end
 end

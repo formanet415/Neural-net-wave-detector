@@ -11,7 +11,7 @@ from pathlib import Path
 loaded_model = keras.models.load_model('saved_modelv2')
 print(loaded_model.summary())
 
-directory = r'converted_tswf_spectra/'
+directory = r'converted_tswf_spectra_blind_data/'
 paths = sorted(Path(directory).iterdir(), key=os.path.getmtime)
 for filename in paths:
     if str(filename).endswith(".jpg") or str(filename).endswith(".png"):
@@ -23,7 +23,7 @@ for filename in paths:
         input_arr = np.array([input_arr])  # Convert single image to a batch.
         predictions = loaded_model.predict(input_arr)
         #print(predictions)
-        if (0.1<predictions[0,1]):
+        if (0.05<predictions[0,1]):
             print(str(filename) + ' %f chance of being ESW' %predictions[0,1])
             print()
         #print(loaded_model(input_arr))

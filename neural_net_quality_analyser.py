@@ -22,6 +22,7 @@ values = []
 directory = r'converted_tswf_spectra/'
 paths = sorted(Path(directory).iterdir(), key=os.path.getmtime)
 for filename in paths:
+    print('something good happened')
     if str(filename).endswith(".jpg") or str(filename).endswith(".png"):
         #print(os.path.join(directory, filename))
         #evaluating         Input(shape=(128, 60, 1))
