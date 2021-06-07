@@ -1,8 +1,8 @@
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-
-features = np.arange(1, 10)
+#                   [1,2,3,4,5,6,7,8,9]
+features = np.transpose(np.array([[1,2,3,4,5,6,7,8,9],[1,1,3,4,6,6,8,8,9]]))
 labels = np.repeat(np.array([1,2,3]),3)
 
 print("Features:", features)
