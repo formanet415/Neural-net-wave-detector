@@ -1,4 +1,4 @@
-function E0 = convert_to_SRF(data, index)
+function E = convert_to_SRF(data, index)
 %CONVERT_TO_SRF Summary of this function goes here
 %   Detailed explanation goes here
 if ~exist('index', 'var')
@@ -45,6 +45,5 @@ ww = data.WAVEFORM_DATA.data(:,1:nsamp,index);
 % projection: E = MAT(ANT->SRF) * V; where MAT(2,2) and V is observed field 
 M = inv(M);
 E = M*ww(1:2,:) * 1e3; % transformation into SRF (Y-Z)
-E0 = ww(1:2,:) * 1e3;
 end
 
