@@ -16,7 +16,7 @@ def load_rpw(filetype, year, month, day, opt):
         data = {}
 
         if opt=='nnet':
-            for varname in ['Epoch', 'SAMPLING_RATE', 'CHANNEL_ON', 'SAMPS_PER_CH', 'WAVEFORM_DATA']:
+            for varname in ['Epoch', 'SAMPLING_RATE', 'CHANNEL_ON', 'SAMPS_PER_CH', 'WAVEFORM_DATA', 'TDS_CONFIG_LABEL']:
                 data[varname] = cdf.varget(varname)
             return data
 
