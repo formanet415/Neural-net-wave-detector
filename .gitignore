@@ -119,3 +119,4 @@ dmypy.json
 
 *.asv
 .idea*
+jar of pickles/empty_rswf_data.pickle
