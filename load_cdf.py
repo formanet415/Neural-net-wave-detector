@@ -27,10 +27,32 @@ def load_rpw(filetype, year, month, day, opt):
 
     if filetype == 'stat' and opt == 'L1':
         data_folder = Path('Z:/rpw/L1')
-        for names in os.listdir(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day)):
-            if ('solo_L1_rpw-tds-surv-%s-cdag_%04d%02d%02d_V' % (filetype, year, month, day)) in names:
-                fname = names
-        cdf = cdflib.CDF(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day) / fname)
+        try:
+            for names in os.listdir(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day)):
+                if ('solo_L1_rpw-tds-surv-%s-cdag_%04d%02d%02d_V' % (filetype, year, month, day)) in names:
+                    fname = names
+            cdf = cdflib.CDF(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day) / fname)
+        except:
+            print('Dir not found')
+            return -1
+
+        data = {}
+
+        (why, varnames) = cdf._get_varnames()
+        for varname in varnames:
+            data[varname] = cdf.varget(varname)
+        return data
+
+    if filetype == 'stat' and opt == 'L2':
+        data_folder = Path('Z:/rpw/L2/tds_stat')
+        try:
+            for names in os.listdir(data_folder / ('%04d' % year) / ('%02d' % month)):
+                if ('solo_L2_rpw-tds-surv-%s-cdag_%04d%02d%02d_V' % (filetype, year, month, day)) in names:
+                    fname = names
+            cdf = cdflib.CDF(data_folder / ('%04d' % year) / ('%02d' % month) / fname)
+        except:
+            print('Dir not found')
+            return -1
 
         data = {}
 
