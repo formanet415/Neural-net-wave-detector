@@ -60,3 +60,41 @@ def load_rpw(filetype, year, month, day, opt):
         for varname in varnames:
             data[varname] = cdf.varget(varname)
         return data
+
+    if filetype == 'hk' and opt == 'das':
+        data_folder = Path('Z:/rpw/HK')
+        try:
+            for names in os.listdir(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day)):
+                if ('solo_HK_rpw-das_%04d%02d%02d_V' % (year, month, day)) in names:
+                    fname = names
+            cdf = cdflib.CDF(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day) / fname)
+        except:
+            print('Dir not found')
+            return -1
+
+        data = {}
+
+        (why, varnames) = cdf._get_varnames()
+        for varname in varnames:
+            data[varname] = cdf.varget(varname)
+        return data
+
+    if filetype == 'hk' and opt == 'das-stat':
+        data_folder = Path('Z:/rpw/HK')
+        try:
+            for names in os.listdir(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day)):
+                if ('solo_HK_rpw-das-statistics_%04d%02d%02d_V' % (year, month, day)) in names:
+                    fname = names
+            cdf = cdflib.CDF(data_folder / ('%04d' % year) / ('%02d' % month) / ('%02d' % day) / fname)
+        except:
+            print('Dir not found')
+            return -1
+
+        data = {}
+
+        (why, varnames) = cdf._get_varnames()
+        for varname in varnames:
+            data[varname] = cdf.varget(varname)
+        return data
+
+    print('oops')
