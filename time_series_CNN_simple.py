@@ -59,8 +59,8 @@ pickle_dirname = 'jar of pickles'
 pickle_names = os.listdir(pickle_dirname)
 [x, y] = load_pickle(pickle_names, pickle_dirname)
 
-x_train, x_validate = train_test_split(x, test_size=0.05, random_state=421)
-y_train, y_validate = train_test_split(y, test_size=0.05, random_state=421)
+x_train, x_validate = train_test_split(x, test_size=0.3, random_state=421)
+y_train, y_validate = train_test_split(y, test_size=0.3, random_state=421)
 
 print('Loaded data')
 
@@ -75,7 +75,7 @@ model = keras.Model(inputs=inputs, outputs=outputs)
 print(model.summary())
 model.compile(
     loss=keras.losses.SparseCategoricalCrossentropy(from_logits=False),
-    optimizer=tf.keras.optimizers.Adagrad(learning_rate=0.005),
+    optimizer=tf.keras.optimizers.Adagrad(learning_rate=0.05),
     metrics=["accuracy"],
 )
 

@@ -6,20 +6,12 @@ function dataset_generator(CDF_DIR, dotTXT_DIR)
 %
 
 
-if ~exist(CDF_DIR, 'file')
-    error('CDF dir does not exist');
-    return
-end
-if ~exist(dotTXT_DIR, 'file')
-    error('Text file dir does not exist');
-    return
-end
 
 cdf = cdf_load_tswf(CDF_DIR);
 
 load(dotTXT_DIR)
 ind = 0;
-indsus = 0;
+indsus = 0;indexes
 for i=1:length(cdf.WAVEFORM_DATA.data(1,1,:))
     if cdf.SAMPS_PER_CH.data(i,1) == 8192 && i < final_index
         if ismember(i, indexes)
